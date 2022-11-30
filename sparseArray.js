@@ -1,3 +1,8 @@
+//Dado un array de strings de entrada (strings) y un array de strings de consulta (queries). 
+//Para cada string de consulta, determine cuántas veces aparece el mismo string en el array de strings de entrada. 
+//Devuelve un array de los resultados.
+
+
 const queries = ["a", "abc", "bc", "ab"];
 
 const strings = ["ab", "ab", "abc"];
@@ -43,7 +48,7 @@ const process = (queries, strings) => {
     strings.map((arr) => {
       if(item === arr) {
         count++
-        console.log(count, "count")
+        // console.log(count, "count")
       }
     })
     results.push(count)

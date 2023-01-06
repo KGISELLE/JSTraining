@@ -23,58 +23,66 @@
 //C;M;white sheet of paper       whiteSheetOfPaper()
 //S;V;pictureFrame               picture frame
 
-const input = ["S;M;plasticCup()", "S;C;LargeSoftwareBook", "S;V;pictureFrame", "C;M;white sheet of paper", "C;C;coffee machine", "C;V;mobile phone"]
+const input1 = "S;M;plasticCup()";
+const input2 = "S;C;LargeSoftwareBook";
+const input3 = "S;V;pictureFrame ";
+
+const input4 = "C;M;white sheet of paper";
+const input5 = "C;C;coffee machine";
+const input6 = "C;V;mobile phone";
 
 
 //TODO: Clean function for HK
 function processData(input) {
 
-  const a = input.map( elm => {
+  const firstLetter = input.charAt(0).trim();
+ 
+  const secondLetter = input.charAt(2).trim();
 
-    let firstLetter = elm.charAt(0);
-    let secondLetter = elm.charAt(2);
+  //substraer solo la palabra
+  const substringWords = input.substring(4, input.length);
 
-    //Procesos para Dividir
-    const substringMethodWords = elm.substring(4, elm.length-2);
-    const substringWords = elm.substring(4, elm.length);
+  //To split
+  const splitString = substringWords.replace(/([A-Z])/g, ' $1').trim();
 
-    const splitMethodWords = substringMethodWords.replace(/([A-Z])/g, ' $1').trim();
-    const splitWords = substringWords.replace(/([A-Z])/g, ' $1').trim();
+  //To combine
+  //Convertir en mayuscula la primera letra de cada palabra
+  const splitEachWord = substringWords.split(" ");  
+  const transformUpperCase = splitEachWord.map((item) => item.charAt(0).toUpperCase() + item.substring(1));
+  //Crear un solo string
+  const newString = transformUpperCase.join("");
+  //Convertir en minuscula solo la primera letra para Method y Variable
+  const firstLetterLowerCase = newString.charAt(0).toLowerCase() + newString.substring(1);
 
-    //Procesos para combinar
-    const splitEachWord = substringWords.split(" ");
-    
-    const transformUpperCase = splitEachWord.map((item) => item.charAt(0).toUpperCase() + item.substring(1));
-
-    const newString = transformUpperCase.join("");
-
-    const firstLetterLowerCase = newString.charAt(0).toLowerCase() + newString.substring(1);
-
-
-    if (firstLetter === "S") {
-      if (secondLetter === "M") {
-        console.log(splitMethodWords.toLowerCase());
-      } else if (secondLetter === "C" || "V") {
-        console.log(splitWords.toLowerCase())
-      }
-    } else {
-      if (secondLetter === "M") {
-        
-        console.log(firstLetterLowerCase + "()");
-
-      } else if(secondLetter === "V") {
-        console.log(firstLetterLowerCase);
-
-      } else if(secondLetter === "C") {
   
-        console.log(newString);
-
-      }
+  if(firstLetter === "S") {
+    if(secondLetter === "M") {
+      const removeMethod = splitString.substring(0, splitString.length-2);
+      console.log(removeMethod.toLowerCase());
+    } 
+    
+    else if (secondLetter === "C" || "V"){
+      console.log(splitString.toLowerCase());
     }
 
-  })
+  } 
+  else {
+    if(secondLetter === "M") {
+      console.log(firstLetterLowerCase + "()");
+    } 
+    else if(secondLetter === "C") {
+      console.log(newString);
+    } 
+    else {   
+      console.log(firstLetterLowerCase);
+    }
+  }
 
 } 
 
-processData(input);
-
+processData(input1);
+processData(input2);
+processData(input3);
+processData(input4);
+processData(input5);
+processData(input6);

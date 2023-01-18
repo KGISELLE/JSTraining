@@ -15,6 +15,36 @@
 const str = "hello world";
 const sep = "-";
 
+// const freqSeq = (str, sep) => {
+
+//   let counter = 0;
+
+//   let letterToNum = [];
+
+//   for (let eachLetter of str ) {
+//     // console.log(eachLetter);
+
+//     for (let coincedenceLetter of str) {
+//       if (eachLetter === coincedenceLetter) {
+//         counter++;
+//         // console.log(counter);
+//       }
+//     }
+//     letterToNum.push(counter);
+//     // console.log(letterToNum);
+//     counter = 0;
+//     // console.log(counter);
+//   }
+//   // console.log(letterToNum)
+//   const strTranslated = letterToNum.join(sep);
+//   // console.log(letterToNum.join(sep))
+//   return strTranslated;
+// };
+
+// freqSeq(str, sep);
+
+
+//Clear Solution
 const freqSeq = (str, sep) => {
 
   let counter = 0;
@@ -22,25 +52,19 @@ const freqSeq = (str, sep) => {
   let letterToNum = [];
 
   for (let eachLetter of str ) {
-    // console.log(eachLetter);
 
     for (let coincedenceLetter of str) {
       if (eachLetter === coincedenceLetter) {
         counter++;
-        // console.log(counter);
       }
     }
+
     letterToNum.push(counter);
-    // console.log(letterToNum);
     counter = 0;
-    // console.log(counter);
   }
-  // console.log(letterToNum)
   const strTranslated = letterToNum.join(sep);
-  // console.log(letterToNum.join(sep))
+  console.log(letterToNum.join(sep))
   return strTranslated;
 };
 
 freqSeq(str, sep);
-
-

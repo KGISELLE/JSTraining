@@ -48,22 +48,19 @@ const sep = "-";
 const freqSeq = (str, sep) => {
 
   let counter = 0;
-
   let letterToNum = [];
 
   for (let eachLetter of str ) {
-
     for (let coincedenceLetter of str) {
       if (eachLetter === coincedenceLetter) {
         counter++;
       }
     }
-
     letterToNum.push(counter);
     counter = 0;
   }
+
   const strTranslated = letterToNum.join(sep);
-  console.log(letterToNum.join(sep))
   return strTranslated;
 };
 
